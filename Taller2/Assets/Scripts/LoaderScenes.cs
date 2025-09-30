@@ -9,6 +9,7 @@ public class LoaderScenes : MonoBehaviour
     public Button ButtonIniciar;
     public Button ButtonInstrucciones;
     public Button ButtonSalir;
+    public Button ButtonRegresar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +31,11 @@ public class LoaderScenes : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("InstructionsScene");
     }
+
+    public void RegresarMenu()
+        {
+        SceneManager.LoadScene("Menu");
+        }
 
     public void SalirJuego()
     {
