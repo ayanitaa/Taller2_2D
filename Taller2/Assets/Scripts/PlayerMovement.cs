@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class MovePlayer : MonoBehaviour
     public float speed = 4f;
     public float jumpForce = 15f;
     private bool isGrounded;
+    private Animator Animator;
 
     void Start()
     {
@@ -18,8 +20,10 @@ public class MovePlayer : MonoBehaviour
         
         horizontal = Input.GetAxisRaw("Horizontal");
 
-       
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+        if (horizontal < 0.0f) transform.localScale = new Vector3(-1.86f, 1.86f, 1.86f);
+        else if (horizontal > 0.0f) transform.localScale = new Vector3(1.86f, 1.86f, 1.86f);
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false;
