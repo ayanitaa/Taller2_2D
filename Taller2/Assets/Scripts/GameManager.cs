@@ -1,13 +1,35 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    private int scoreTotal = 0;
-    private int monedas = 0;
-    private int pergaminos = 0;
-    private int pociones = 0;
+    [Header("Configuración Inicial")]
+    [SerializeField] private int vidasIniciales = 3;
+
+    [Header("Valores por Tipo de Item")]
+    [SerializeField] private int valorGema = 3;
+    [SerializeField] private int valorPergamino = 1;
+    [SerializeField] private int valorPocion = 2;
+    [SerializeField] private int valorEnemigo = 5;
+
+    [Header("Puntaje Total")]
+    [SerializeField] private int scoreTotal = 0;
+
+    [Header("Conteo de Items")]
+    private Dictionary<ItemType, int> itemCounts = new Dictionary<ItemType, int>();
+
+    [Header("Vidas")]
+    public int remainingLives;
+
+    public enum ItemType
+    {
+        Gema,
+        Pergamino,
+        Pocion,
+        Enemigo
+    }
 
     private void Awake()
     {
@@ -16,32 +38,58 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        remainingLives = vidasIniciales;
+
+        // Inicializa el conteo de cada tipo de ítem
+        foreach (ItemType tipo in System.Enum.GetValues(typeof(ItemType)))
+        {
+            itemCounts[tipo] = 0;
+        }
     }
 
-    public void SumarItem(string item, int valor)
+    public void SumarItem(ItemType item)
     {
+        int valor = ObtenerValorItem(item);
         scoreTotal += valor;
-
-        if (item == "Moneda")
-        {
-            monedas++;
-        }
-        else if (item == "Pergamino")
-        {
-            pergaminos++;
-        }
-        else if (item == "Pocion")
-        {
-            pociones++;
-        }
-
-        Debug.Log($"Score: {scoreTotal} | Monedas: {monedas} | Pergaminos: {pergaminos} | Pociones: {pociones}");
+        itemCounts[item]++;
+        Debug.Log($"Puntuación: {scoreTotal} | Vidas: {remainingLives}");
     }
+
+    private int ObtenerValorItem(ItemType item)
+    {
+        switch (item)
+        {
+            case ItemType.Gema: return valorGema;
+            case ItemType.Pergamino: return valorPergamino;
+            case ItemType.Pocion: return valorPocion;
+            case ItemType.Enemigo: return valorEnemigo;
+            default: return 0;
+        }
+    }
+
+    public void LoseLife()
+    {
+        remainingLives = Mathf.Max(remainingLives - 1, 0);
+        Debug.Log($"¡Vida perdida! Vidas restantes: {remainingLives}");
+    }
+
+    private float tiempoTotal = 0f;
+
+    public void AddTime(float tiempo)
+    {
+        tiempoTotal += tiempo;
+    }
+
+    public float TiempoTotal => tiempoTotal;
 
     public int ScoreTotal => scoreTotal;
-    public int Monedas => monedas;
-    public int Pergaminos => pergaminos;
-    public int Pociones => pociones;
+
+    public int GetItemCount(ItemType item)
+    {
+        return itemCounts.ContainsKey(item) ? itemCounts[item] : 0;
+    }
 }
