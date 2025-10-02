@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("Configuración Inicial")]
     [SerializeField] private int vidasIniciales = 3;
 
-    [Header("Valores por Tipo de Item")]
+    [Header("Valores por Tipo de Ítem")]
     [SerializeField] private int valorGema = 3;
     [SerializeField] private int valorPergamino = 1;
     [SerializeField] private int valorPocion = 2;
@@ -17,11 +17,13 @@ public class GameManager : MonoBehaviour
     [Header("Puntaje Total")]
     [SerializeField] private int scoreTotal = 0;
 
-    [Header("Conteo de Items")]
+    [Header("Conteo de Ítems")]
     private Dictionary<ItemType, int> itemCounts = new Dictionary<ItemType, int>();
 
     [Header("Vidas")]
     public int remainingLives;
+
+    private float tiempoTotal = 0f;
 
     public enum ItemType
     {
@@ -44,7 +46,6 @@ public class GameManager : MonoBehaviour
 
         remainingLives = vidasIniciales;
 
-        // Inicializa el conteo de cada tipo de ítem
         foreach (ItemType tipo in System.Enum.GetValues(typeof(ItemType)))
         {
             itemCounts[tipo] = 0;
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
         int valor = ObtenerValorItem(item);
         scoreTotal += valor;
         itemCounts[item]++;
-        Debug.Log($"Puntuación: {scoreTotal} | Vidas: {remainingLives}");
+        Debug.Log($"Recolectado: {item} | Total: {itemCounts[item]} | Puntuación: {scoreTotal}");
     }
 
     private int ObtenerValorItem(ItemType item)
@@ -77,15 +78,12 @@ public class GameManager : MonoBehaviour
         Debug.Log($"¡Vida perdida! Vidas restantes: {remainingLives}");
     }
 
-    private float tiempoTotal = 0f;
-
     public void AddTime(float tiempo)
     {
         tiempoTotal += tiempo;
     }
 
     public float TiempoTotal => tiempoTotal;
-
     public int ScoreTotal => scoreTotal;
 
     public int GetItemCount(ItemType item)

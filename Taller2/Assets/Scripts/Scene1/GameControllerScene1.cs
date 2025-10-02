@@ -1,16 +1,21 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameController1 : MonoBehaviour
+public class GameControllerScene1 : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private float tiempoInicio;
+
     void Start()
     {
-        
+        tiempoInicio = Time.time; 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TocarBandera()
     {
-        
+        float duracionEscena1 = Time.time - tiempoInicio;
+        GameManager.Instance.AddTime(duracionEscena1);
+        Debug.Log($"Tiempo en Escena 1: {duracionEscena1:F2} segundos");
+
+        SceneManager.LoadScene("Scene2"); 
     }
 }

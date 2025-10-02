@@ -24,7 +24,9 @@ public class LoaderScenes : MonoBehaviour
     }
     public void IniciarJuego()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Scene1");
+        SceneManager.LoadScene("Scene1", LoadSceneMode.Additive);
+        menuPanel.SetActive(false);
+
     }
 
     public void MostrarInstrucciones()
