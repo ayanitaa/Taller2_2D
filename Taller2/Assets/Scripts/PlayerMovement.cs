@@ -1,15 +1,12 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class MovePlayer : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float horizontal;
-    public float speed = 5f; // velocidad horizontal
-    public float jumpForce = 7f; // fuerza del salto
-    private bool isGrounded = false;
-
-    [SerializeField] private Transform groundCheck; 
-    [SerializeField] private LayerMask groundLayer; 
+    public float speed = 4f;
+    public float jumpForce = 15f;
+    private bool isGrounded;
 
     void Start()
     {
@@ -18,21 +15,28 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Movimiento horizontal
+        
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        // Salto
-        if (Input.GetButtonDown("Jump") && isGrounded)
+       
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            isGrounded = false;
         }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+    }
 
-        // Detectar si está en el suelo
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+   
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }
