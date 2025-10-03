@@ -17,7 +17,7 @@ public class MovePlayer : MonoBehaviour
 
     void Update()
     {
-        
+
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (horizontal < 0.0f) transform.localScale = new Vector3(-1.86f, 1.86f, 1.86f);
@@ -35,12 +35,17 @@ public class MovePlayer : MonoBehaviour
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
     }
 
-   
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+
+        }
+
     }
 }

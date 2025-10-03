@@ -619,6 +619,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas Tiempo
       objectReference: {fileID: 0}
+    - target: {fileID: 4267086898754798801, guid: 5a91ebece918727449e08887660b09d6, type: 3}
+      propertyPath: m_TagString
+      value: Moneda
+      objectReference: {fileID: 0}
     - target: {fileID: 5331684340154613289, guid: 5a91ebece918727449e08887660b09d6, type: 3}
       propertyPath: m_Color.b
       value: 0
