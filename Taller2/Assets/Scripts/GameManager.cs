@@ -17,20 +17,32 @@ public class GameManager : MonoBehaviour
     [Header("Puntaje Total")]
     [SerializeField] private int scoreTotal = 0;
 
-    [Header("Conteo de Ítems")]
-    private Dictionary<ItemType, int> itemCounts = new Dictionary<ItemType, int>();
-
     [Header("Vidas")]
     public int remainingLives;
 
     private float tiempoTotal = 0f;
+
+    private List<CapturaItem> itemsCapturados = new List<CapturaItem>();
 
     public enum ItemType
     {
         Gema,
         Pergamino,
         Pocion,
-        Enemigo
+        Enemigo,
+        MonedaFinal
+    }
+
+    public class CapturaItem
+    {
+        public ItemType tipo;
+        public float tiempoCaptura;
+
+        public CapturaItem(ItemType tipo, float tiempo)
+        {
+            this.tipo = tipo;
+            this.tiempoCaptura = tiempo;
+        }
     }
 
     private void Awake()
@@ -43,12 +55,16 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
         remainingLives = vidasIniciales;
+    }
 
-        foreach (ItemType tipo in System.Enum.GetValues(typeof(ItemType)))
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void AutoCrearGameManager()
+    {
+        if (Instance == null)
         {
-            itemCounts[tipo] = 0;
+            GameObject gm = new GameObject("GameManager");
+            gm.AddComponent<GameManager>();
         }
     }
 
@@ -56,8 +72,10 @@ public class GameManager : MonoBehaviour
     {
         int valor = ObtenerValorItem(item);
         scoreTotal += valor;
-        itemCounts[item]++;
-        Debug.Log($"Recolectado: {item} | Total: {itemCounts[item]} | Puntuación: {scoreTotal}");
+
+        itemsCapturados.Add(new CapturaItem(item, tiempoTotal));
+
+        Debug.Log($"Recolectado: {item} | Total: {ContarPorTipo(item)} | Puntuación: {scoreTotal}");
     }
 
     private int ObtenerValorItem(ItemType item)
@@ -68,6 +86,7 @@ public class GameManager : MonoBehaviour
             case ItemType.Pergamino: return valorPergamino;
             case ItemType.Pocion: return valorPocion;
             case ItemType.Enemigo: return valorEnemigo;
+            case ItemType.MonedaFinal: return 0;
             default: return 0;
         }
     }
@@ -86,8 +105,13 @@ public class GameManager : MonoBehaviour
     public float TiempoTotal => tiempoTotal;
     public int ScoreTotal => scoreTotal;
 
-    public int GetItemCount(ItemType item)
+    public int ContarPorTipo(ItemType tipo)
     {
-        return itemCounts.ContainsKey(item) ? itemCounts[item] : 0;
+        return itemsCapturados.FindAll(i => i.tipo == tipo).Count;
+    }
+
+    public List<CapturaItem> GetTodosLosItems()
+    {
+        return itemsCapturados;
     }
 }

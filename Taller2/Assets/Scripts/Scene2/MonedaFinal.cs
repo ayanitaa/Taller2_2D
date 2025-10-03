@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class MonedaFinal : MonoBehaviour
 {
-    private GameControllerScene2 controlador;
+    public GameObject PanelResultados;
 
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        controlador = FindObjectOfType<GameControllerScene2>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player") && GameManager.Instance != null)
         {
-            controlador.MonedaRecogida();
-            Destroy(gameObject); 
+            GameManager.Instance.AddTime(Time.deltaTime); 
+
+            PanelResultados.SetActive(true);
+
+            Time.timeScale = 0f;
+
+            Destroy(gameObject);
         }
     }
 }
