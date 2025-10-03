@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         horizontal = Input.GetAxisRaw("Horizontal");
 
         animator.SetFloat("Run", Mathf.Abs(horizontal));
@@ -40,6 +41,20 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
 
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+
+        }
+
     }
 }

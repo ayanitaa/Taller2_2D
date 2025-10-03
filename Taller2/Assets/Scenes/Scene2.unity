@@ -308,8 +308,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Puntos por enemigo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
+  m_sharedMaterial: {fileID: 6055103854624554273, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -811,8 +811,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pociones
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
+  m_sharedMaterial: {fileID: 6055103854624554273, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6438,8 +6438,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pergaminos
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
+  m_sharedMaterial: {fileID: 6055103854624554273, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7020,8 +7020,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Gemas
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
+  m_sharedMaterial: {fileID: 6055103854624554273, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7506,7 +7506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -226, y: 0}
+  m_AnchoredPosition: {x: -236, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &900217803
@@ -7623,8 +7623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: 94}
-  m_SizeDelta: {x: 350.9758, y: 50}
+  m_AnchoredPosition: {x: 14.886, y: 87}
+  m_SizeDelta: {x: 374.7477, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1112859585
 MonoBehaviour:
@@ -7648,8 +7648,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: VIDAS RESTANTES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
+  m_sharedMaterial: {fileID: 6055103854624554273, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7956,8 +7956,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "PUNTUACI\xD3N TOTAL"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
+  m_sharedMaterial: {fileID: 6055103854624554273, guid: ccb4ea9c151238f4d9f47dc7625bf81a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
