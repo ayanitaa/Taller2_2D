@@ -809,7 +809,6 @@ GameObject:
   - component: {fileID: 2489735291829246239}
   - component: {fileID: 6875781412967995041}
   - component: {fileID: 5331684340154613289}
-  - component: {fileID: 3454886324395337295}
   m_Layer: 5
   m_Name: PanelTime
   m_TagString: Untagged
@@ -880,21 +879,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3454886324395337295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5981134302429484654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 908eeb79459b8ec49b40b3a3951904ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerMinutes: {fileID: 5603592246885096133}
-  timerSeconds: {fileID: 7855329516489881257}
-  timerSeconds100: {fileID: 4063035452759735470}
 --- !u!1 &7100578435359259350
 GameObject:
   m_ObjectHideFlags: 0

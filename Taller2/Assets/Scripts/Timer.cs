@@ -1,28 +1,28 @@
 using UnityEngine;
+using TMPro;
 
-public class ControladorTiempo : MonoBehaviour
+public class Timer : MonoBehaviour
 {
-    private float tiempoInicio;
-    private bool tiempoFinalizado = false;
+    public TextMeshProUGUI textoMinutos;
+    public TextMeshProUGUI textoSegundos;
+    public TextMeshProUGUI textoMilisegundos;
 
-    void Start()
+    void Update()
     {
-        tiempoInicio = Time.time; 
-    }
 
-    /// <summary>
-    /// Finaliza el conteo de tiempo y lo guarda en el GameManager.
-    /// Solo se ejecuta una vez.
-    /// </summary>
-    public void FinalizarTiempo()
-    {
-        if (tiempoFinalizado) return;
+        GameManager.Instance.AddTime(Time.deltaTime);
 
-        float duracion = Time.time - tiempoInicio;
-        GameManager.Instance.AddTime(duracion);
-        tiempoFinalizado = true;
+        if (GameManager.Instance != null)
+        {
+            float tiempo = GameManager.Instance.TiempoTotal;
 
-        Debug.Log($"Tiempo de esta escena: {duracion:F2} segundos");
-        Debug.Log($"Tiempo total acumulado: {GameManager.Instance.TiempoTotal:F2} segundos");
+            int minutos = Mathf.FloorToInt(tiempo / 60f);
+            int segundos = Mathf.FloorToInt(tiempo % 60f);
+            int milisegundos = Mathf.FloorToInt((tiempo * 100f) % 100f);
+
+            textoMinutos.text = minutos.ToString("00");
+            textoSegundos.text = segundos.ToString("00");
+            textoMilisegundos.text = milisegundos.ToString("00");
+        }
     }
 }
