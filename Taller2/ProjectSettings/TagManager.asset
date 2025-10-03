@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Moneda
+  - Enemy
   layers:
   - Default
   - TransparentFX
