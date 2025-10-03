@@ -466,6 +466,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908eeb79459b8ec49b40b3a3951904ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textoMinutos: {fileID: 0}
+  textoSegundos: {fileID: 0}
+  textoMilisegundos: {fileID: 0}
 --- !u!1 &390297718 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3576433076997266518, guid: 7982528a8993c4bdaa0a7f5d0279ed74, type: 3}
@@ -1064,7 +1067,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &925872562
@@ -1427,7 +1430,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1271804766

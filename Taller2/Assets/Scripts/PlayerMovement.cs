@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovePlayer : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float horizontal;
@@ -8,8 +8,8 @@ public class MovePlayer : MonoBehaviour
     public float jumpForce = 15f;
 
     [Header("Ground Check")] 
-    [SerializeField] private Transform groundCheck;   // 👉 Aquí aparecerá el campo en el Inspector
-    [SerializeField] private LayerMask groundLayer;   // 👉 Aquí asignas el Layer Ground
+    [SerializeField] private Transform groundCheck;   
+    [SerializeField] private LayerMask groundLayer;   
 
     private bool isGrounded;
     private Animator animator;
@@ -22,20 +22,16 @@ public class MovePlayer : MonoBehaviour
 
     void Update()
     {
-        // Movimiento horizontal
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        // Animación de correr
         animator.SetFloat("Run", Mathf.Abs(horizontal));
 
-        // Saltar solo si está en el suelo
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             animator.SetTrigger("Jump");
         }
 
-        // Flip de personaje
         if (horizontal < 0.0f) transform.localScale = new Vector3(-1.86f, 1.86f, 1.86f);
         else if (horizontal > 0.0f) transform.localScale = new Vector3(1.86f, 1.86f, 1.86f);
     }
@@ -44,7 +40,6 @@ public class MovePlayer : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
 
-        // Detecta si toca el suelo con el GroundCheck
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 }
