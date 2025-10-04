@@ -60,6 +60,11 @@ public class GameManager : MonoBehaviour
         remainingLives = vidasIniciales;
     }
 
+    public void ReiniciarTiempoTotal()
+    {
+        tiempoTotal = 0f;
+    }
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void AutoCrearGameManager()
     {
