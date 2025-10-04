@@ -21,6 +21,5 @@ public class GameControllerScene2 : MonoBehaviour
         Debug.Log($"Tiempo en Escena 2: {duracionEscena2:F2} segundos");
         Debug.Log($"Tiempo Total Jugado: {GameManager.Instance.TiempoTotal:F2} segundos");
 
-        // Aquí puedes cargar la pantalla final de resultados
     }
 }

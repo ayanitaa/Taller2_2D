@@ -7,13 +7,14 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI textoSegundos;
     public TextMeshProUGUI textoMilisegundos;
 
+    private bool tiempoActivo = true;
+
     void Update()
     {
-
-        GameManager.Instance.AddTime(Time.deltaTime);
-
-        if (GameManager.Instance != null)
+        if (tiempoActivo && GameManager.Instance != null)
         {
+            GameManager.Instance.AddTime(Time.deltaTime);
+
             float tiempo = GameManager.Instance.TiempoTotal;
 
             int minutos = Mathf.FloorToInt(tiempo / 60f);
@@ -24,5 +25,10 @@ public class Timer : MonoBehaviour
             textoSegundos.text = segundos.ToString("00");
             textoMilisegundos.text = milisegundos.ToString("00");
         }
+    }
+
+    public void DetenerTiempo()
+    {
+        tiempoActivo = false;
     }
 }

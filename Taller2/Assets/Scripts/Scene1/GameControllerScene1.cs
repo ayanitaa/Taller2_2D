@@ -16,6 +16,8 @@ public class GameControllerScene1 : MonoBehaviour
         GameManager.Instance.AddTime(duracionEscena1);
         Debug.Log($"Tiempo en Escena 1: {duracionEscena1:F2} segundos");
 
+        Object.FindFirstObjectByType<Timer>()?.DetenerTiempo();
+
         SceneManager.LoadScene("Scene2"); 
     }
 }
