@@ -396,9 +396,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas Tiempo
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
->>>>>>> MariaJ
     - target: {fileID: 5603592246885096133, guid: 5a91ebece918727449e08887660b09d6, type: 3}
       propertyPath: m_fontAsset
       value: 
