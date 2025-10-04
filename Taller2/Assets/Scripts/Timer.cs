@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
         {
             GameManager.Instance.AddTime(Time.deltaTime);
 
-            float tiempo = GameManager.Instance.TiempoTotal;
+            float tiempo = Time.timeSinceLevelLoad;
 
             int minutos = Mathf.FloorToInt(tiempo / 60f);
             int segundos = Mathf.FloorToInt(tiempo % 60f);
@@ -30,5 +30,12 @@ public class Timer : MonoBehaviour
     public void DetenerTiempo()
     {
         tiempoActivo = false;
+    }
+
+    public void ReiniciarVisual()
+    {
+        textoMinutos.text = "00";
+        textoSegundos.text = "00";
+        textoMilisegundos.text = "00";
     }
 }

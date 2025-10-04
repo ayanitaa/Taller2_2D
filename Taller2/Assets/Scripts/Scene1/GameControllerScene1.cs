@@ -7,17 +7,17 @@ public class GameControllerScene1 : MonoBehaviour
 
     void Start()
     {
-        tiempoInicio = Time.time; 
+        tiempoInicio = Time.time;
     }
 
     public void TocarBandera()
     {
-        float duracionEscena1 = Time.time - tiempoInicio;
-        GameManager.Instance.AddTime(duracionEscena1);
-        Debug.Log($"Tiempo en Escena 1: {duracionEscena1:F2} segundos");
-
         Object.FindFirstObjectByType<Timer>()?.DetenerTiempo();
 
-        SceneManager.LoadScene("Scene2"); 
+        float duracionEscena1 = Time.time - tiempoInicio;
+
+        Debug.Log($"Tiempo en Escena 1: {duracionEscena1:F2} segundos");
+
+        SceneManager.LoadScene("Scene2");
     }
 }

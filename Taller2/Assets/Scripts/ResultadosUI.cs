@@ -62,6 +62,6 @@ public class ResultadosUI : MonoBehaviour
         textoPergaminos.text = $"Pergaminos totales: {GameManager.Instance.ContarPorTipo(GameManager.ItemType.Pergamino)}";
         textoPociones.text = $"Pociones totales: {GameManager.Instance.ContarPorTipo(GameManager.ItemType.Pocion)}";
         textoScore.text = $"Puntuación por recolectar items: {GameManager.Instance.ScoreTotal}";
-        textoEnemigos.text = $"Puntuación por eliminar enemigos: {GameManager.Instance.remainingLives}";
+        //textoEnemigos.text = $"Puntuación por eliminar enemigos: {GameManager.Instance.}";
     }
 }
