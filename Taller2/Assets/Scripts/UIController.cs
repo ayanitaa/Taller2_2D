@@ -12,7 +12,6 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
-        // Actualiza los textos cada frame con datos del GameManager
         textoGemas.text = $"Gemas: {GameManager.Instance.ContarPorTipo(GameManager.ItemType.Gema)}";
         textoPergaminos.text = $"Pergaminos: {GameManager.Instance.ContarPorTipo(GameManager.ItemType.Pergamino)}";
         textoPociones.text = $"Pociones: {GameManager.Instance.ContarPorTipo(GameManager.ItemType.Pocion)}";

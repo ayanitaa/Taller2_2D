@@ -6,7 +6,8 @@ public class LoaderScenes : MonoBehaviour
 {
     [Header("Menú UI")]
     public GameObject menuPanel;
-    public Button ButtonIniciar;
+    public GameObject instruccionesPanel;
+    public Button ButtonContronles;
     public Button ButtonInstrucciones;
     public Button ButtonSalir;
     public Button ButtonRegresar;
@@ -29,7 +30,7 @@ public class LoaderScenes : MonoBehaviour
 
     }
 
-    public void MostrarInstrucciones()
+    public void MostrarControles()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("InstructionsScene");
     }
@@ -38,6 +39,14 @@ public class LoaderScenes : MonoBehaviour
         {
         SceneManager.LoadScene("Menu");
         }
+    public void MostrarIntrucciones()
+    {
+        // Ocultar el menú
+        menuPanel.SetActive(false);
+
+        // Mostrar el panel de instrucciones
+        instruccionesPanel.SetActive(true);
+    }
 
     public void SalirJuego()
     {

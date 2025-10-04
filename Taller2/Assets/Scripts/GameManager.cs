@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement; 
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         MonedaFinal
     }
 
+    [System.Serializable]
     public class CapturaItem
     {
         public ItemType tipo;
@@ -95,6 +97,13 @@ public class GameManager : MonoBehaviour
     {
         remainingLives = Mathf.Max(remainingLives - 1, 0);
         Debug.Log($"¡Vida perdida! Vidas restantes: {remainingLives}");
+
+        
+        if (remainingLives <= 0)
+        {
+            Debug.Log("?? Se acabaron las vidas, reiniciando la escena 2...");
+            SceneManager.LoadScene("Scene2"); 
+        }
     }
 
     public void AddTime(float tiempo)
